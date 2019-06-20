@@ -1,6 +1,7 @@
 ﻿using PatronRepositorio.DAL;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -18,7 +19,7 @@ namespace PatronRepositorio.BLL
             _contexto = new Contexto();
         }
 
-        public virtual bool Guardar<T>(T entity) where T : class
+        public virtual bool Guardar(T entity)
         {
             bool paso = false;
             try
@@ -36,12 +37,12 @@ namespace PatronRepositorio.BLL
             return paso;
         }
 
-        public virtual bool Modificar<T>(T entity) where T : class
+        public virtual bool Modificar(T entity)
         {
             bool paso = false;
             try
             {
-                _contexto.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+                _contexto.Entry(entity).State = EntityState.Modified;
                 paso = _contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -51,7 +52,7 @@ namespace PatronRepositorio.BLL
             return paso;
         }
 
-        public virtual bool Eliminar<T>(int id) where T : class
+        public virtual bool Eliminar(int id)
         {
             bool paso = false;
             try
@@ -68,7 +69,7 @@ namespace PatronRepositorio.BLL
             return paso;
         }
 
-        public virtual T Buscar<T>(int id) where T : class
+        public virtual T Buscar(int id)
         {
             T entity;
             try
@@ -107,5 +108,7 @@ namespace PatronRepositorio.BLL
             }
             return Lista; ;
         }
+
+      
     }
 }
