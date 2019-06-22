@@ -21,6 +21,39 @@ namespace PatronRepositorio.Entidades.Tests
         }
      
         [TestMethod()]
+        public void GetList()
+        {
+            RepositorioBase<Personas> repositorio;
+            repositorio = new RepositorioBase<Personas>();
+            Assert.IsNotNull(repositorio.GetList(p => true));
+        }
+
+        [TestMethod()]
+        public void ModificarTest()
+        {
+            RepositorioBase<Personas> repositorio = new RepositorioBase<Personas>();
+            Personas persona = new Personas()
+            {
+                IdPersona = 1,
+                DNI = 1,
+                Nombre = "nombre2",
+                Materno = "prueba2",
+                Paterno = "prueba",
+                FechaNacimiento = DateTime.Now,
+                Telefono = "222222",
+                Correo = "Prueba@",
+                Sexo = "M",
+                Direccion = "prueba",
+                Imagen_IdImagen = 0,
+                TipoPersona_IdPersona = 1
+            };
+
+            Assert.IsTrue(repositorio.Modificar(persona));
+
+          
+        }
+
+        [TestMethod()]
         public void Buscar()
         {
             RepositorioBase<Personas> repositorio;
@@ -30,20 +63,14 @@ namespace PatronRepositorio.Entidades.Tests
         }
 
         [TestMethod()]
-        public void GetList()
+        public void Eliminar()
         {
             RepositorioBase<Personas> repositorio;
             repositorio = new RepositorioBase<Personas>();
-            Assert.IsNotNull(repositorio.GetList(p => true));
+            Assert.IsTrue(repositorio.Eliminar(1));
         }
 
-        [TestMethod()]
-        public void Modificar()
-        {
-            RepositorioBase<Personas> repositorio;
-            repositorio = new RepositorioBase<Personas>();
-            Assert.IsTrue(repositorio.Modificar(new Personas(1, "Walder", "De Jesus", "Reyes", DateTime.Now, "8091232123", "Walder@walder.com", "M", 1, "Libertad", 1)));
-        }
+
 
     }
 }

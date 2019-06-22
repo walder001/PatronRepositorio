@@ -27,7 +27,7 @@ namespace PatronRepositorio.Entidades
         public Personas()
         {
             {
-                DNI = 0;
+                DNI = 1;
                 Nombre = string.Empty;
                 Materno = string.Empty;
                 Paterno = string.Empty;

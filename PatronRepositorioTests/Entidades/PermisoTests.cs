@@ -10,36 +10,37 @@ using System.Threading.Tasks;
 namespace PatronRepositorio.Entidades.Tests
 {
     [TestClass()]
-    public class ProveedorTests
+    public class PermisoTests
     {
-
         [TestMethod()]
         public void Guardar()
         {
-            RepositorioBase<Proveedor> repositorio;
-            repositorio = new RepositorioBase<Proveedor>();
-            Assert.IsTrue(repositorio.Guardar(new Proveedor()));
+            RepositorioBase<Permiso> repositorio;
+            repositorio = new RepositorioBase<Permiso>();
+            Assert.IsTrue(repositorio.Guardar(new Permiso()));
         }
 
         [TestMethod()]
         public void GetList()
         {
-            RepositorioBase<Proveedor> repositorio;
-            repositorio = new RepositorioBase<Proveedor>();
+            RepositorioBase<Permiso> repositorio;
+            repositorio = new RepositorioBase<Permiso>();
             Assert.IsNotNull(repositorio.GetList(p => true));
         }
 
         [TestMethod()]
         public void ModificarTest()
         {
-            RepositorioBase<Proveedor> repositorio = new RepositorioBase<Proveedor>();
-            Proveedor proveedor = new Proveedor()
+            RepositorioBase<Permiso> repositorio = new RepositorioBase<Permiso>();
+            Permiso persona = new Permiso()
             {
-                IdProveedor = 1,
-                Persona_IdPersona = 1
+                IdPermiso = 1,
+                Descripcion = "Administrador",
+                Funcionalidad = "Prueba",
+               
             };
 
-            Assert.IsTrue(repositorio.Modificar(proveedor));
+            Assert.IsTrue(repositorio.Modificar(persona));
 
 
         }
@@ -47,8 +48,8 @@ namespace PatronRepositorio.Entidades.Tests
         [TestMethod()]
         public void Buscar()
         {
-            RepositorioBase<Proveedor> repositorio;
-            repositorio = new RepositorioBase<Proveedor>();
+            RepositorioBase<Permiso> repositorio;
+            repositorio = new RepositorioBase<Permiso>();
 
             Assert.IsNotNull(repositorio.Buscar(1));
         }
@@ -57,8 +58,8 @@ namespace PatronRepositorio.Entidades.Tests
 
         public void Eliminar()
         {
-            RepositorioBase<Proveedor> repositorio;
-            repositorio = new RepositorioBase<Proveedor>();
+            RepositorioBase<Permiso> repositorio;
+            repositorio = new RepositorioBase<Permiso>();
             Assert.IsTrue(repositorio.Eliminar(1));
         }
 

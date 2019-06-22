@@ -10,36 +10,37 @@ using System.Threading.Tasks;
 namespace PatronRepositorio.Entidades.Tests
 {
     [TestClass()]
-    public class ProveedorTests
+    public class EstadoTests
     {
-
         [TestMethod()]
         public void Guardar()
         {
-            RepositorioBase<Proveedor> repositorio;
-            repositorio = new RepositorioBase<Proveedor>();
-            Assert.IsTrue(repositorio.Guardar(new Proveedor()));
+            RepositorioBase<Estado> repositorio;
+            repositorio = new RepositorioBase<Estado>();
+            Assert.IsTrue(repositorio.Guardar(new Estado()));
         }
 
         [TestMethod()]
         public void GetList()
         {
-            RepositorioBase<Proveedor> repositorio;
-            repositorio = new RepositorioBase<Proveedor>();
+            RepositorioBase<Estado> repositorio;
+            repositorio = new RepositorioBase<Estado>();
             Assert.IsNotNull(repositorio.GetList(p => true));
         }
 
         [TestMethod()]
         public void ModificarTest()
         {
-            RepositorioBase<Proveedor> repositorio = new RepositorioBase<Proveedor>();
-            Proveedor proveedor = new Proveedor()
+            RepositorioBase<Estado> repositorio = new RepositorioBase<Estado>();
+            Estado persona = new Estado()
             {
-                IdProveedor = 1,
-                Persona_IdPersona = 1
+                IdEstado = 1,
+                FechaFin = DateTime.Now,
+                FechaInicio = DateTime.Now,
+                Estados = "Nuevo"
             };
 
-            Assert.IsTrue(repositorio.Modificar(proveedor));
+            Assert.IsTrue(repositorio.Modificar(persona));
 
 
         }
@@ -47,8 +48,8 @@ namespace PatronRepositorio.Entidades.Tests
         [TestMethod()]
         public void Buscar()
         {
-            RepositorioBase<Proveedor> repositorio;
-            repositorio = new RepositorioBase<Proveedor>();
+            RepositorioBase<Estado> repositorio;
+            repositorio = new RepositorioBase<Estado>();
 
             Assert.IsNotNull(repositorio.Buscar(1));
         }
@@ -57,8 +58,8 @@ namespace PatronRepositorio.Entidades.Tests
 
         public void Eliminar()
         {
-            RepositorioBase<Proveedor> repositorio;
-            repositorio = new RepositorioBase<Proveedor>();
+            RepositorioBase<Estado> repositorio;
+            repositorio = new RepositorioBase<Estado>();
             Assert.IsTrue(repositorio.Eliminar(1));
         }
 

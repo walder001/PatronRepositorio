@@ -10,34 +10,33 @@ using System.Threading.Tasks;
 namespace PatronRepositorio.Entidades.Tests
 {
     [TestClass()]
-    public class UsuarioTests
+    public class TipoComprobanteTests
     {
         [TestMethod()]
         public void Guardar()
         {
-            RepositorioBase<Usuario> repositorio;
-            repositorio = new RepositorioBase<Usuario>();
-            Assert.IsTrue(repositorio.Guardar(new Usuario()));
+            RepositorioBase<TipoComprobante> repositorio;
+            repositorio = new RepositorioBase<TipoComprobante>();
+            Assert.IsTrue(repositorio.Guardar(new TipoComprobante()));
         }
 
         [TestMethod()]
         public void GetList()
         {
-            RepositorioBase<Usuario> repositorio;
-            repositorio = new RepositorioBase<Usuario>();
+            RepositorioBase<TipoComprobante> repositorio;
+            repositorio = new RepositorioBase<TipoComprobante>();
             Assert.IsNotNull(repositorio.GetList(p => true));
         }
 
         [TestMethod()]
         public void ModificarTest()
         {
-            RepositorioBase<Usuario> repositorio = new RepositorioBase<Usuario>();
-            Usuario persona = new Usuario()
+            RepositorioBase<TipoComprobante> repositorio = new RepositorioBase<TipoComprobante>();
+            TipoComprobante persona = new TipoComprobante()
             {
-                IdUsuario = 1,
-                Empleado_IdEmpleado = 1,
-                NombreUsuario = "Prueba",
-                Clave = "123"
+                IdTipoComprobante = 1,
+                NombreComprobante = "Prueba"
+              
             };
 
             Assert.IsTrue(repositorio.Modificar(persona));
@@ -48,8 +47,8 @@ namespace PatronRepositorio.Entidades.Tests
         [TestMethod()]
         public void Buscar()
         {
-            RepositorioBase<Usuario> repositorio;
-            repositorio = new RepositorioBase<Usuario>();
+            RepositorioBase<TipoComprobante> repositorio;
+            repositorio = new RepositorioBase<TipoComprobante>();
 
             Assert.IsNotNull(repositorio.Buscar(1));
         }
@@ -58,8 +57,8 @@ namespace PatronRepositorio.Entidades.Tests
 
         public void Eliminar()
         {
-            RepositorioBase<Usuario> repositorio;
-            repositorio = new RepositorioBase<Usuario>();
+            RepositorioBase<TipoComprobante> repositorio;
+            repositorio = new RepositorioBase<TipoComprobante>();
             Assert.IsTrue(repositorio.Eliminar(1));
         }
 

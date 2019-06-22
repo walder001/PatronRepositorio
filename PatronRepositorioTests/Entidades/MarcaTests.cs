@@ -10,36 +10,35 @@ using System.Threading.Tasks;
 namespace PatronRepositorio.Entidades.Tests
 {
     [TestClass()]
-    public class ProveedorTests
+    public class MarcaTests
     {
-
         [TestMethod()]
         public void Guardar()
         {
-            RepositorioBase<Proveedor> repositorio;
-            repositorio = new RepositorioBase<Proveedor>();
-            Assert.IsTrue(repositorio.Guardar(new Proveedor()));
+            RepositorioBase<Marca> repositorio;
+            repositorio = new RepositorioBase<Marca>();
+            Assert.IsTrue(repositorio.Guardar(new Marca()));
         }
 
         [TestMethod()]
         public void GetList()
         {
-            RepositorioBase<Proveedor> repositorio;
-            repositorio = new RepositorioBase<Proveedor>();
+            RepositorioBase<Marca> repositorio;
+            repositorio = new RepositorioBase<Marca>();
             Assert.IsNotNull(repositorio.GetList(p => true));
         }
 
         [TestMethod()]
         public void ModificarTest()
         {
-            RepositorioBase<Proveedor> repositorio = new RepositorioBase<Proveedor>();
-            Proveedor proveedor = new Proveedor()
+            RepositorioBase<Marca> repositorio = new RepositorioBase<Marca>();
+            Marca persona = new Marca()
             {
-                IdProveedor = 1,
-                Persona_IdPersona = 1
+                IdMarca = 1,
+                NombreMarca = "Prueba"
             };
 
-            Assert.IsTrue(repositorio.Modificar(proveedor));
+            Assert.IsTrue(repositorio.Modificar(persona));
 
 
         }
@@ -47,8 +46,8 @@ namespace PatronRepositorio.Entidades.Tests
         [TestMethod()]
         public void Buscar()
         {
-            RepositorioBase<Proveedor> repositorio;
-            repositorio = new RepositorioBase<Proveedor>();
+            RepositorioBase<Marca> repositorio;
+            repositorio = new RepositorioBase<Marca>();
 
             Assert.IsNotNull(repositorio.Buscar(1));
         }
@@ -57,8 +56,8 @@ namespace PatronRepositorio.Entidades.Tests
 
         public void Eliminar()
         {
-            RepositorioBase<Proveedor> repositorio;
-            repositorio = new RepositorioBase<Proveedor>();
+            RepositorioBase<Marca> repositorio;
+            repositorio = new RepositorioBase<Marca>();
             Assert.IsTrue(repositorio.Eliminar(1));
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace PatronRepositorio.Entidades
 {
     public class Compra
     {
+        [Key]
         public int IdCompra { get; set; }
         public int Usuario_IdUsiario { get; set; }
         public DateTime FechaCompra { get; set; }
